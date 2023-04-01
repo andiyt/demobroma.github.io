@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>¿Question?</title>
+    <link rel="shortcut icon" href=".Heart.png" type="image/x-icon">
+
+    <style>
+
+        body{
+            background-color: darkgreen;
+            text-align: center;
+            margin: 0px auto;
+        }
+
+        .container{
+            position: relative;
+            top: 300px;
+            background: brown;
+            padding: 24px;
+            width: 300px;
+            margin: 0 auto;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: ease .5s;
+            border-style: solid;
+            border-color: rgb(8, 2, 5);
+            box-shadow: 10px 10px;
+        }
+        
+        .container button{
+            font-weight: bold;
+            position: relative;
+            top: 25px;
+            left: -80px;
+            outline: none;
+            border: none;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 10px;
+            padding-top: 10px;
+            border-radius: 5px;
+            transition: ease .5s;
+            background-color: rgb(0, 128, 248);
+        }
+
+        .container button:hover{
+            background-color: rgb(51, 51, 248);
+            color: white;
+        }
+
+        .container span{
+            position: relative;
+            left: 60px;
+            top: -10px;
+            pointer-events: none;
+        }
+
+       .coun{
+            position: relative !important;
+            top: 1px !important;
+            left: 110px !important;
+            opacity: 0;
+        }
+
+        .gif{
+            width: 300px;
+            border-radius: 10px;
+            position: relative;
+            top: 10px;
+        }
+
+        .containerdi{
+            top: 200px !important;
+        }
+
+        .anim{
+            animation: xd 2s ease 0s infinite normal forwards;
+        }
+
+@keyframes xd {
+	0%,
+	50%,
+	100% {
+		color: rgb(0, 0, 0);
+	}
+
+	25%,
+	75% {
+		color: rgb(255, 255, 255);
+	}
+}
+
+.si{
+    position: relative !important;
+    left: 0px !important;
+    top: 0px !important;
+    pointer-events: none !important;
+    font-size: 25px;
+}
+
+.alert{
+    position: fixed;
+    transition: ease .5s;
+    background-color: aliceblue;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 20px;
+    opacity: 0;
+    margin: 0% auto;
+    left: 0;
+    right: 0;
+    top: 80%;
+    width: fit-content;
+
+}
+
+.alerto{
+    opacity: 1;
+    transform: translateY(-50px);
+}
+
+.animo{
+    animation: change 4s cubic-bezier(0.23, 0.63, 0.89, 0.43) 0.5s infinite normal both;
+}
+
+@keyframes change {
+    0%{
+        background-color: gray;
+    }
+    25%{
+        background-color: blueviolet;
+    }
+	50%{
+        background-color: white;
+    }
+	75% {
+		background-color: yellow;
+	}
+    100% {
+		background-color: red;
+	}
+	
+}
+
+footer{
+    position: relative;
+    font-weight: bold;
+    margin-top: auto;
+    top: 331px;
+
+}
+    </style>
+</head>
+<body>
+
+
+   
+
+    <div id="container" class="container"> 
+    <div id="subcontent">
+      <span>Quieres ser mi novia?</span>
+      <button id="si">Si</button>
+      <button class="no" id="no">No</button>
+      <span class="coun" id="count">0/99999</span>
+    </div>
+    </div>
+
+    <div id="alert" class="alert"></div>
+
+    <footer title="Creador">
+        <p>Creada por Andi <script>var date = new Date; document.write(date.getFullYear())</script></p>
+    </footer>
+
+    <script>
+
+
+document.getElementById("no").onclick = function (){ NO() }
+document.getElementById("si").onclick = function(){ Si() }
+
+ var i = 0;
+ var aux = true;
+
+        function NO(){
+            i++;
+            document.getElementById("count").style.opacity = "1";
+            document.getElementById("count").innerHTML = i+"/99999"
+            if(i==1){
+                alerti(" ¡¡¡¡¡ QUE !!!!! ")
+            } else if(i==50){alerti(" No te hagas de rogar. ")} else if(i==100){ alerti(" Terminaras aceptando. ")} else if(i== 150){alerti("Adios, en breve regreso.")} else if(i==1000){alerti(" Me sorprendes. ")}
+            if(i>100){
+                document.getElementById("count").classList.add("anim")
+
+            }
+        }
+
+        function Si(){
+            document.getElementById("container").classList.add("containerdi")
+            document.getElementById("container").classList.add("animo")
+            document.body.classList.add("animo")
+            document.getElementById("subcontent").innerHTML = `
+            <span class='si'>Era broma...</span>
+            <img class='gif' src=".xd.gif">
+            <audio autoplay="true" loop="true" hidden="true" src=".METAMORPHOSIS.mp3"></audio>
+            `;
+            
+        }
+
+
+        function alerti(e){
+            document.getElementById("alert").innerHTML = `<span>`+e+`</span>`;
+            document.getElementById("alert").classList.add("alerto")
+           setTimeout(()=>{document.getElementById("alert").classList.remove("alerto")},3000)
+        }
+
+    </script>
+
+</body>
+</html>
